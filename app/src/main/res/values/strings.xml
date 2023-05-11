@@ -1,0 +1,71 @@
+<resources>
+    <string name="app_name">Hayah Pharma</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="welcome">Welcome</string>
+    <string name="to_continue_login_now">To Continue, Login Now</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="register_now">Register Now</string>
+    <string name="name">Name</string>
+    <string name="phone">Phone</string>
+    <string name="address">Address</string>
+    <string name="sign_Up">Sign Up</string>
+    <string name="search">search</string>
+    <string name="required">required</string>
+    <string name="Home">Home</string>
+    <string name="profile">Profile</string>
+    <string name="code">Code</string>
+    <string name="pharmacy_code">Pharmacy code</string>
+    <string name="expired">Expired</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="not_match">Not Match</string>
+    <string name="Successful_Register">Successful Register</string>
+    <string name="price">price</string>
+    <string name="ph_price">Ph price</string>
+    <string name="composition">Composition</string>
+    <string name="company">Company</string>
+    <string name="pamlat">Pamlat</string>
+    <string name="dosage">Dosage</string>
+    <string name="order_now">order now</string>
+    <string name="near">NearUsers</string>
+    <string name="phone_">phone:</string>
+    <string name="nearrest_store">Nearrest Store</string>
+    <string name="returns">Returns</string>
+    <string name="add_item">Add Item</string>
+    <string name="order_finished">order finished</string>
+    <string name="quantity">quantity:</string>
+
+    <string-array name="spinnerId">
+        <item>Government Id</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+    </string-array>
+</resources>

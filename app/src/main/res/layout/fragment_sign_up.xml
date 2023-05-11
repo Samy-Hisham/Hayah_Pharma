@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.auth.register.SignUpFragment">
+
+    <ImageView
+        android:id="@+id/background_up"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.95"
+        android:scaleType="fitXY"
+        android:src="@drawable/bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_100sdp"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="@dimen/_80sdp"
+        android:src="@drawable/ic_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edit_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_22sdp"
+        android:layout_marginTop="@dimen/_60sdp"
+        android:background="@drawable/bg_item_register"
+        android:drawableEnd="@drawable/ic_user"
+        android:drawablePadding="@dimen/_10sdp"
+        android:hint="@string/name"
+        android:inputType="text"
+        android:padding="@dimen/_12ssp"
+        android:textColorHint="@color/gray"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/icon" />
+
+    <EditText
+        android:id="@+id/edit_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_22sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:background="@drawable/bg_item_register"
+        android:drawableEnd="@drawable/ic_phone"
+        android:drawablePadding="@dimen/_10sdp"
+        android:hint="@string/phone"
+        android:inputType="number"
+        android:padding="@dimen/_8ssp"
+        android:textColorHint="@color/gray"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edit_confirm_pass" />
+
+    <EditText
+        android:id="@+id/edit_pass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_22sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:background="@drawable/bg_item_register"
+        android:drawablePadding="@dimen/_10sdp"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:padding="@dimen/_12ssp"
+        android:textColorHint="@color/gray"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edit_name" />
+
+    <ImageView
+        android:id="@+id/show_pass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:src="@drawable/ic_eye"
+        app:layout_constraintBottom_toBottomOf="@+id/edit_pass"
+        app:layout_constraintEnd_toEndOf="@+id/edit_pass"
+        app:layout_constraintTop_toTopOf="@+id/edit_pass"
+        android:contentDescription="TODO" />
+
+    <ImageView
+        android:id="@+id/hide_pass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:src="@drawable/ic_eye"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/edit_pass"
+        app:layout_constraintEnd_toEndOf="@+id/edit_pass"
+        app:layout_constraintTop_toTopOf="@+id/edit_pass" />
+
+    <EditText
+        android:id="@+id/edit_confirm_pass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_22sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:background="@drawable/bg_item_register"
+        android:drawablePadding="@dimen/_10sdp"
+        android:hint="@string/confirm_password"
+        android:inputType="textPassword"
+        android:padding="@dimen/_12ssp"
+        android:textColorHint="@color/gray"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edit_pass" />
+
+    <ImageView
+        android:id="@+id/show_confirmed_pass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:src="@drawable/ic_eye"
+        app:layout_constraintBottom_toBottomOf="@+id/edit_confirm_pass"
+        app:layout_constraintEnd_toEndOf="@+id/edit_confirm_pass"
+        app:layout_constraintTop_toTopOf="@+id/edit_confirm_pass" />
+
+    <ImageView
+        android:id="@+id/hide_confirmed_pass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:src="@drawable/ic_eye"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/edit_confirm_pass"
+        app:layout_constraintEnd_toEndOf="@+id/edit_confirm_pass"
+        app:layout_constraintTop_toTopOf="@+id/edit_confirm_pass" />
+
+    <Spinner
+        android:id="@+id/spinner_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_22sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@drawable/bg_item_register"
+        android:entries="@array/spinnerId"
+        android:padding="@dimen/_8sdp"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_phone"
+        tools:ignore="RtlSymmetry" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_signUp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:background="@drawable/edit_button"
+        android:text="@string/sign_Up"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/Main_Color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.06"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_id"
+        app:layout_constraintWidth_percent="0.5" />
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/icon" />
+</androidx.constraintlayout.widget.ConstraintLayout>

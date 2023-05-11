@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.android.hayahpharma.ui.splash.SplashFragment"
+        android:label="SplashFragment"
+        tools:layout="@layout/fragment_splash"
+        >
+        <action
+            android:id="@+id/action_splashFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/nav_graph.xml" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.android.hayahpharma.ui.auth.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/nav_graph.xml" />
+        <argument
+            android:name="code"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.android.hayahpharma.ui.auth.register.SignUpFragment"
+        android:label="SignUpFragment"
+        tools:layout="@layout/fragment_sign_up"
+        >
+        <action
+            android:id="@+id/action_signUpFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.android.hayahpharma.ui.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home"
+        >
+        <action
+            android:id="@+id/action_homeFragment_to_itemDetailFragment"
+            app:destination="@id/itemDetailFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_nearUserFragment"
+            app:destination="@id/nearUserFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_expiredFragment2"
+            app:destination="@id/expiredFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemDetailFragment"
+        android:name="com.android.hayahpharma.ui.itemdetail.ItemDetailFragment"
+        android:label="fragment_item_detail"
+        tools:layout="@layout/fragment_item_detail" >
+        <argument
+            android:name="itemId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/nearUserFragment"
+        android:name="com.android.hayahpharma.ui.near.NearUserFragment"
+        android:label="fragment_near_user"
+        tools:layout="@layout/fragment_near_user" />
+    <fragment
+        android:id="@+id/expiredFragment2"
+        android:name="com.android.hayahpharma.ui.expired.ExpiredFragment"
+        android:label="fragment_expired"
+        tools:layout="@layout/fragment_expired" >
+        <action
+            android:id="@+id/action_expiredFragment2_to_addItemExpiredFragment"
+            app:destination="@id/addItemExpiredFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addItemExpiredFragment"
+        android:name="com.android.hayahpharma.ui.expired.AddItemExpiredFragment"
+        android:label="fragment_add_item_expired"
+        tools:layout="@layout/fragment_add_item_expired" >
+        <action
+            android:id="@+id/action_addItemExpiredFragment_to_defineItemFragment"
+            app:destination="@id/defineItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/defineItemFragment"
+        android:name="com.android.hayahpharma.ui.expired.DefineItemFragment"
+        android:label="fragment_define_item"
+        tools:layout="@layout/fragment_define_item" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
+</navigation>

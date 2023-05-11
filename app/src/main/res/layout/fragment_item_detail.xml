@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.itemdetail.ItemDetailFragment">
+
+
+    <ImageView
+        android:id="@+id/img_item"
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_150sdp"
+        android:layout_marginHorizontal="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/fake" />
+
+    <TextView
+        android:id="@+id/txt_name_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_24sdp"
+        android:text="@string/name"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img_item" />
+
+    <TextView
+        android:id="@+id/name_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_24sdp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/txt_name_item"
+        app:layout_constraintTop_toBottomOf="@id/img_item"
+        tools:text="ACC 200mg 20 sachets" />
+
+    <TextView
+        android:id="@+id/txt_composition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_24sdp"
+        android:text="@string/composition"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/name_item" />
+
+    <TextView
+        android:id="@+id/name_composition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_composition"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/txt_composition"
+        app:layout_constraintTop_toTopOf="@+id/txt_composition"
+        tools:text="acetylcysteine 200mg" />
+
+    <TextView
+        android:id="@+id/txt_activeIngredient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_24sdp"
+        android:text="ActiveIngredient:"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/name_composition" />
+
+    <TextView
+        android:id="@+id/activeIngredient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_activeIngredient"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txt_activeIngredient"
+        app:layout_constraintTop_toTopOf="@id/txt_activeIngredient"
+        tools:text="ACETYLCYSTEINE" />
+
+    <TextView
+        android:id="@+id/txt_company"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_24sdp"
+        android:text="@string/company"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activeIngredient" />
+
+    <TextView
+        android:id="@+id/name_company"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintBottom_toBottomOf="@id/txt_company"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/txt_company"
+        app:layout_constraintTop_toTopOf="@id/txt_company"
+        tools:text="MINA PHARM > HEXAL AG Germany" />
+
+    <TextView
+        android:id="@+id/txt_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_24sdp"
+        android:text="@string/price"
+        android:textSize="@dimen/_16ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_company" />
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_16ssp"
+        app:layout_constraintBottom_toBottomOf="@id/txt_price"
+        app:layout_constraintStart_toEndOf="@id/txt_price"
+        app:layout_constraintTop_toTopOf="@id/txt_price"
+        tools:text="25.5" />
+
+    <TextView
+        android:id="@+id/txt_phprice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_24sdp"
+        android:text="@string/ph_price"
+        android:textSize="@dimen/_16ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_price" />
+
+    <TextView
+        android:id="@+id/phprice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_16ssp"
+        app:layout_constraintBottom_toBottomOf="@id/txt_phprice"
+        app:layout_constraintStart_toEndOf="@id/txt_phprice"
+        app:layout_constraintTop_toTopOf="@id/txt_phprice"
+        tools:text="25.5" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/add_cart"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_24sdp"
+        android:text="@string/order_now"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_phprice"
+        app:layout_constraintWidth_percent="0.8" />
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

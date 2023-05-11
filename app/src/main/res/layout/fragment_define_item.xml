@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.expired.DefineItemFragment">
+
+    <ImageView
+        android:id="@+id/img_item"
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="@dimen/_100sdp"
+        android:layout_marginHorizontal="@dimen/_4sdp"
+        android:scaleType="fitXY"
+        android:src="@drawable/fake"
+        android:layout_marginTop="@dimen/_12sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:text="@string/name"
+        android:layout_marginStart="@dimen/_12sdp"
+        app:layout_constraintTop_toBottomOf="@id/img_item"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/_10sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/txt_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:maxLines="@integer/material_motion_duration_long_2"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_10sdp"
+        app:layout_constraintStart_toEndOf="@id/item"
+        app:layout_constraintTop_toTopOf="@id/item"
+        tools:text="Panadol" />
+
+    <TextView
+        android:id="@+id/txt_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_4sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:text="@string/price"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/_10sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_item"
+        />
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_4sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="@string/price"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12sdp"
+        app:layout_constraintStart_toEndOf="@+id/txt_price"
+        app:layout_constraintTop_toBottomOf="@id/txt_item" />
+
+    <TextView
+        android:id="@+id/txt_phprice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_4sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:text="qty"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/_10sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_price"
+        />
+
+    <TextView
+        android:id="@+id/qty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_4sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_10sdp"
+        app:layout_constraintStart_toEndOf="@+id/txt_phprice"
+        app:layout_constraintTop_toBottomOf="@id/txt_price" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_add"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:background="@drawable/ic_add_24"
+        android:drawablePadding="@dimen/_10sdp"
+        android:gravity="center"
+        app:iconPadding="@dimen/_12sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/qty" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_sub"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:background="@drawable/ic_baseline_remove_24"
+        android:drawablePadding="@dimen/_10sdp"
+        android:gravity="center"
+        app:iconPadding="@dimen/_12sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_add" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_12sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
