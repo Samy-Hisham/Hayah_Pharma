@@ -7,7 +7,7 @@
 
     <item
         android:id="@+id/expiredFragment2"
-        android:icon="@drawable/ic_expired_24"
+        android:icon="@drawable/ic_return_gray_24"
         android:title="@string/expired" />
 
     <item

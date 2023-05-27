@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.android.hayahpharma.databinding.ItemRecycleBinding
 import com.android.hayahpharma.model.ModelDataItemItem
+import com.android.hayahpharma.model.ModelDisount
 import com.bumptech.glide.Glide
 
 class AdapterRecyclerItems : RecyclerView.Adapter<AdapterRecyclerItems.Holder>() {
@@ -14,7 +15,7 @@ class AdapterRecyclerItems : RecyclerView.Adapter<AdapterRecyclerItems.Holder>()
 
     @SuppressLint("NotifyDataSetChanged")
     @JvmName("setList1")
-    fun setList(list: MutableList<ModelDataItemItem>?) {
+    fun setList(list: MutableList<ModelDataItemItem>) {
         this.list = list
         notifyDataSetChanged()
     }

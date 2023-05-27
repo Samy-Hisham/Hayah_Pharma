@@ -24,13 +24,12 @@
         <action
             android:id="@+id/action_loginFragment_to_signUpFragment"
             app:destination="@id/signUpFragment" />
-        <action
-            android:id="@+id/action_loginFragment_to_homeFragment"
-            app:destination="@id/homeFragment"
-            app:popUpTo="@id/nav_graph.xml" />
         <argument
             android:name="code"
             app:argType="string" />
+        <action
+            android:id="@+id/action_loginFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
@@ -52,11 +51,8 @@
             android:id="@+id/action_homeFragment_to_itemDetailFragment"
             app:destination="@id/itemDetailFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_nearUserFragment"
-            app:destination="@id/nearUserFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_expiredFragment2"
-            app:destination="@id/expiredFragment2" />
+            android:id="@+id/action_homeFragment_to_preOrderFragment"
+            app:destination="@id/preOrderFragment" />
     </fragment>
     <fragment
         android:id="@+id/itemDetailFragment"
@@ -66,6 +62,9 @@
         <argument
             android:name="itemId"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_itemDetailFragment_to_addOrderFragment"
+            app:destination="@id/addOrderFragment" />
     </fragment>
     <fragment
         android:id="@+id/nearUserFragment"
@@ -80,23 +79,155 @@
         <action
             android:id="@+id/action_expiredFragment2_to_addItemExpiredFragment"
             app:destination="@id/addItemExpiredFragment" />
+        <action
+            android:id="@+id/action_expiredFragment2_to_preReturnsFragment"
+            app:destination="@id/preReturnsFragment" />
     </fragment>
     <fragment
         android:id="@+id/addItemExpiredFragment"
         android:name="com.android.hayahpharma.ui.expired.AddItemExpiredFragment"
         android:label="fragment_add_item_expired"
-        tools:layout="@layout/fragment_add_item_expired" >
+        tools:layout="@layout/fragment_add_item_expired" />
+    <fragment
+        android:id="@+id/preReturnsFragment"
+        android:name="com.android.hayahpharma.ui.expired.PreReturnsFragment"
+        android:label="fragment_pre_returns"
+        tools:layout="@layout/fragment_pre_returns" />
+    <fragment
+        android:id="@+id/addOrderFragment"
+        android:name="com.android.hayahpharma.ui.order.AddOrderFragment"
+        android:label="fragment_add_order"
+        tools:layout="@layout/fragment_add_order" >
         <action
-            android:id="@+id/action_addItemExpiredFragment_to_defineItemFragment"
-            app:destination="@id/defineItemFragment" />
+            android:id="@+id/action_addOrderFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_addOrderFragment_to_detailOrderFragment"
+            app:destination="@id/detailOrderFragment" />
     </fragment>
     <fragment
-        android:id="@+id/defineItemFragment"
-        android:name="com.android.hayahpharma.ui.expired.DefineItemFragment"
-        android:label="fragment_define_item"
-        tools:layout="@layout/fragment_define_item" >
+        android:id="@+id/preOrderFragment"
+        android:name="com.android.hayahpharma.ui.preorder.PreOrderFragment"
+        android:label="fragment_pre_order"
+        tools:layout="@layout/fragment_pre_order" >
+        <action
+            android:id="@+id/action_preOrderFragment_to_itemDetailPreOrderFragment"
+            app:destination="@id/itemDetailPreOrderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemDetailPreOrderFragment"
+        android:name="com.android.hayahpharma.ui.preorder.ItemDetailPreOrderFragment"
+        android:label="ItemDetailPreOrderFragment" >
         <argument
-            android:name="id"
+            android:name="orderId"
             app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.android.hayahpharma.ui.welcome.WelcomeFragment"
+        android:label="fragment_welcome"
+        tools:layout="@layout/fragment_welcome" >
+        <action
+            android:id="@+id/action_welcomeFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_nearUserFragment2"
+            app:destination="@id/nearUserFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_preOrderFragment"
+            app:destination="@id/preOrderFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_preReturnsFragment"
+            app:destination="@id/preReturnsFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_expiredFragment2"
+            app:destination="@id/expiredFragment2" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_discountFragment"
+            app:destination="@id/discountFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_infoFragment"
+            app:destination="@id/infoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/discountFragment"
+        android:name="com.android.hayahpharma.ui.notification.DiscountFragment"
+        android:label="fragment_discount"
+        tools:layout="@layout/fragment_discount" >
+        <action
+            android:id="@+id/action_discountFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_discountFragment_to_itemsDiscountFragment"
+            app:destination="@id/itemsDiscountFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailOrderFragment"
+        android:name="com.android.hayahpharma.ui.order.DetailOrderFragment"
+        android:label="fragment_detail_order"
+        tools:layout="@layout/fragment_detail_order" >
+        <action
+            android:id="@+id/action_detailOrderFragment_to_creditFragment"
+            app:destination="@id/creditFragment" />
+        <action
+            android:id="@+id/action_detailOrderFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_detailOrderFragment_to_orderDoneFragment"
+            app:destination="@id/orderDoneFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/creditFragment"
+        android:name="com.android.hayahpharma.ui.order.CreditFragment"
+        android:label="fragment_credit"
+        tools:layout="@layout/fragment_credit" >
+        <action
+            android:id="@+id/action_creditFragment_to_orderDoneFragment"
+            app:destination="@id/orderDoneFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderDoneFragment"
+        android:name="com.android.hayahpharma.ui.order.OrderDoneFragment"
+        android:label="fragment_order_done"
+        tools:layout="@layout/fragment_order_done" >
+        <action
+            android:id="@+id/action_orderDoneFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment"
+            app:popUpTo="@id/nav_graph.xml" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemsDiscountFragment"
+        android:name="com.android.hayahpharma.ui.notification.ItemsDiscountFragment"
+        android:label="fragment_items_discount"
+        tools:layout="@layout/fragment_items_discount" />
+    <fragment
+        android:id="@+id/infoFragment"
+        android:name="com.android.hayahpharma.ui.info.InfoFragment"
+        android:label="fragment_info"
+        tools:layout="@layout/fragment_info" >
+        <action
+            android:id="@+id/action_infoFragment_to_missionFragment"
+            app:destination="@id/missionFragment" />
+        <action
+            android:id="@+id/action_infoFragment_to_valuableFragment"
+            app:destination="@id/valuableFragment" />
+        <action
+            android:id="@+id/action_infoFragment_to_visionFragment"
+            app:destination="@id/visionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/missionFragment"
+        android:name="com.android.hayahpharma.ui.info.MissionFragment"
+        android:label="fragment_mission"
+        tools:layout="@layout/fragment_mission" />
+    <fragment
+        android:id="@+id/valuableFragment"
+        android:name="com.android.hayahpharma.ui.info.ValuableFragment"
+        android:label="fragment_valuable"
+        tools:layout="@layout/fragment_valuable" />
+    <fragment
+        android:id="@+id/visionFragment"
+        android:name="com.android.hayahpharma.ui.info.VisionFragment"
+        android:label="fragment_viision"
+        tools:layout="@layout/fragment_viision" />
 </navigation>

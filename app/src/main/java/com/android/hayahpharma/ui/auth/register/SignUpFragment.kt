@@ -73,7 +73,7 @@ class SignUpFragment : Fragment() {
             val pass = editPass.text.toString().trim()
             val confirmedPass = editConfirmPass.text.toString().trim()
             val phone = editPhone.text.toString()
-            val govId = spinnerId.selectedItem.toString()
+            val govId = spinnerId.selectedItemId.toString()
 
             if (name.isBlank()) {
                 editName.error = getString(R.string.required)
@@ -89,18 +89,22 @@ class SignUpFragment : Fragment() {
                 Toast.makeText(requireContext(), "select your gender", Toast.LENGTH_SHORT).show()
             } else {
 
-                registerViewModel.register(ModelRegister(confirmedPass,
-                    name,
-                    govId.toInt(),
-                    pass,
-                    phone))
+                registerViewModel.register(
+                    ModelRegister(
+                        confirmedPass,
+                        name,
+                        govId.toInt(),
+                        pass,
+                        phone
+                    )
+                )
 
-                observe()
+                observe(phone)
             }
         }
     }
 
-    private fun observe() {
+    private fun observe(phone: String) {
         registerViewModel.apply {
 
             successMD.observe(viewLifecycleOwner) {
@@ -114,9 +118,14 @@ class SignUpFragment : Fragment() {
                     setUserName(data.name)
                     setUserTOKEN(data.token)
                     setCode(data.code)
+                    setUserPhone(phone)
                 }
 
-                findNavController().navigate(SignUpFragmentDirections.actionSignUpFragmentToLoginFragment(data.code))
+                findNavController().navigate(
+                    SignUpFragmentDirections.actionSignUpFragmentToLoginFragment(
+                        data.code
+                    )
+                )
             }
             failureMD.observe(viewLifecycleOwner) {
 

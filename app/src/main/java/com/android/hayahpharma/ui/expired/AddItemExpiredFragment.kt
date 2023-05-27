@@ -13,7 +13,6 @@ import com.android.hayahpharma.adapter.AdapterRecyclerItems
 import com.android.hayahpharma.databinding.FragmentAddItemExpiredBinding
 import com.android.hayahpharma.model.ModelDataItem
 import com.android.hayahpharma.model.ModelDataItemItem
-import com.android.hayahpharma.model.ModelReturns
 import com.android.hayahpharma.ui.home.HomeViewModel
 import com.android.hayahpharma.ui.itemdetail.ItemDetailViewModel
 import com.android.saidalytech.uitls.showToast
@@ -28,8 +27,6 @@ class AddItemExpiredFragment : Fragment() {
     private val itemDetailViewModel: ItemDetailViewModel by activityViewModels()
 
     private val adapterRecyclerItems: AdapterRecyclerItems by lazy { AdapterRecyclerItems() }
-
-    var list: MutableList<ModelReturns>? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -58,7 +55,6 @@ class AddItemExpiredFragment : Fragment() {
         homeViewModel.failureSMD.observe(viewLifecycleOwner) {
             showToast(requireContext(), it)
         }
-
     }
 
     private fun onClick() {

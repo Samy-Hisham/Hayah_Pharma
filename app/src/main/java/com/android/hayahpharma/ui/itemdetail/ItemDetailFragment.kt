@@ -7,8 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.android.hayahpharma.R
 import com.android.hayahpharma.databinding.FragmentItemDetailBinding
+import com.android.hayahpharma.model.ItemX
+import com.android.hayahpharma.model.ModelDataItemItem
 import com.android.hayahpharma.ui.home.HomeViewModel
 import com.android.saidalytech.uitls.showToast
 import com.bumptech.glide.Glide
@@ -42,6 +45,18 @@ class ItemDetailFragment : Fragment() {
         observe()
     }
 
+    private fun onClick(categoryId: Int,itemImage: String, itemName: String, itemId: Int, itemPrice: Double) {
+        binding.addCart.setOnClickListener {
+            val newItemToAdd = ModelDataItemItem(
+                categoryId,
+                itemImage,itemId,itemName,itemPrice,itemPrice
+            )
+            sharedViewModel.addItemToCart(newItemToAdd)
+
+            findNavController().navigate(R.id.action_itemDetailFragment_to_addOrderFragment)
+        }
+    }
+
     @SuppressLint("SetTextI18n")
     private fun observe() {
         itemDetailViewModel.apply {
@@ -62,7 +77,7 @@ class ItemDetailFragment : Fragment() {
                     .load(data?.imageName)
                     .into(binding.imgItem)
 
-//                onClick(it.imageName, it.itemName, it.itemId, it.salesPrice)
+                onClick(it.categoryId,it.imageName, it.itemName, it.itemId, it.salesPrice)
             }
             failureMD.observe(viewLifecycleOwner) {
                 showToast(requireContext(), it)

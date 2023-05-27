@@ -18,40 +18,40 @@ class MainActivity() : AppCompatActivity() {
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setUpNavigationView()
-        hideBottomWithSomeFragments()
+//        setUpNavigationView()
+//        hideBottomWithSomeFragments()
     }
 
-    private fun hideBottomWithSomeFragments() {
-        val navController = Navigation.findNavController(this, R.id.fragmentContainerView)
-        navController.addOnDestinationChangedListener { _, destination, _ ->
-
-            when (destination.id) {
-                R.id.homeFragment -> {
-                    findViewById<BottomNavigationView>(R.id.bottomNavView).visibility =
-                        View.VISIBLE
-                }
-                R.id.nearUserFragment -> {
-                    findViewById<BottomNavigationView>(R.id.bottomNavView).visibility =
-                        View.VISIBLE
-                }
-                R.id.expiredFragment2 -> {
-                    findViewById<BottomNavigationView>(R.id.bottomNavView).visibility =
-                        View.VISIBLE
-                }
-                else -> {
-                    findViewById<BottomNavigationView>(R.id.bottomNavView).visibility =
-                        View.GONE
-                }
-            }
-        }
-    }
-
-    private fun setUpNavigationView() {
-
-        val bottomNavView = findViewById<BottomNavigationView>(R.id.bottomNavView)
-        val navController = Navigation.findNavController(this, R.id.fragmentContainerView)
-        bottomNavView.setupWithNavController(navController)
-        NavigationUI.setupWithNavController(bottomNavView, navController)
-    }
+//    private fun hideBottomWithSomeFragments() {
+//        val navController = Navigation.findNavController(this, R.id.fragmentContainerView)
+//        navController.addOnDestinationChangedListener { _, destination, _ ->
+//
+//            when (destination.id) {
+//                R.id.homeFragment -> {
+//                    findViewById<BottomNavigationView>(R.id.bottomNavView).visibility =
+//                        View.VISIBLE
+//                }
+//                R.id.nearUserFragment -> {
+//                    findViewById<BottomNavigationView>(R.id.bottomNavView).visibility =
+//                        View.VISIBLE
+//                }
+//                R.id.expiredFragment2 -> {
+//                    findViewById<BottomNavigationView>(R.id.bottomNavView).visibility =
+//                        View.VISIBLE
+//                }
+//                else -> {
+//                    findViewById<BottomNavigationView>(R.id.bottomNavView).visibility =
+//                        View.GONE
+//                }
+//            }
+//        }
+//    }
+//
+//    private fun setUpNavigationView() {
+//
+//        val bottomNavView = findViewById<BottomNavigationView>(R.id.bottomNavView)
+//        val navController = Navigation.findNavController(this, R.id.fragmentContainerView)
+//        bottomNavView.setupWithNavController(navController)
+//        NavigationUI.setupWithNavController(bottomNavView, navController)
+//    }
 }

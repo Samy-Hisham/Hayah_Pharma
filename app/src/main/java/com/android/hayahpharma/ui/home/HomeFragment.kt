@@ -4,19 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.android.hayahpharma.R
 import com.android.hayahpharma.adapter.AdapterRecyclerItems
 import com.android.hayahpharma.databinding.FragmentHomeBinding
-import com.android.hayahpharma.model.Item
 import com.android.hayahpharma.model.ModelDataItem
-import com.android.hayahpharma.model.ModelDataItemItem
 import com.android.saidalytech.uitls.showToast
 import dagger.hilt.android.AndroidEntryPoint
-import kotlin.math.roundToInt
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
@@ -56,9 +52,16 @@ class HomeFragment : Fragment() {
             }
         }
 
-        binding.editSearch.doOnTextChanged { text, start, before, count ->
-            sharedViewModel.search(binding.editSearch.text.toString())
+        binding.back.setOnClickListener {
+            findNavController().popBackStack()
         }
+
+//        binding.preOrder.setOnClickListener {
+//            findNavController().navigate(R.id.action_homeFragment_to_preOrderFragment)
+//        }
+//        binding.editSearch.doOnTextChanged { text, start, before, count ->
+//            sharedViewModel.search(binding.editSearch.text.toString())
+//        }
     }
 
     private fun observe() {

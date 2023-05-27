@@ -33,22 +33,26 @@ class AdapterRecyclerExpired : RecyclerView.Adapter<AdapterRecyclerExpired.Holde
         val data = list?.get(position)
 
         holder.binding.apply {
+
             txtName.text = data?.itemName
+
             var qty: Int
 
             price.text = data?.price.toString()
-            txtQty.text = data?.qty.toString()
+            txtQty.text = count.toString()
 
             holder.binding.btnAdd.setOnClickListener {
                 count++
                 holder.binding.textView2.text = count.toString()
                 qty = count * data?.price!!.toInt()
+                txtQty.text = count.toString()
                 holder.binding.price.text = "$qty EGP"
             }
 
             holder.binding.btnSub.setOnClickListener {
                 count--
                 holder.binding.textView2.text = count.toString()
+                txtQty.text = count.toString()
                 qty = count * data?.price!!.toInt()
                 holder.binding.price.text = "$qty EGP"
             }
@@ -56,6 +60,8 @@ class AdapterRecyclerExpired : RecyclerView.Adapter<AdapterRecyclerExpired.Holde
             holder.binding.textView2.text = count.toString()
             qty = count * data?.price!!.toInt()
             holder.binding.price.text = "$qty EGP"
+
+            count = 1
         }
 
         Glide.with(holder.itemView.context)

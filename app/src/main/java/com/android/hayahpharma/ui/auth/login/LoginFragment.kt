@@ -53,7 +53,6 @@ class LoginFragment : Fragment() {
         binding.btnLogin.setOnClickListener {
 
             validation()
-            findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
         }
     }
 
@@ -87,13 +86,13 @@ class LoginFragment : Fragment() {
             val data = it
 
             MySharedPreference.apply {
-                setGovId(data.governoratesId)
+//                setGovId(data.governoratesId)
                 setGovName(data.governoratesName)
                 setUserName(data.name)
                 setUserTOKEN(data.token)
             }
 
-            findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+            findNavController().navigate(R.id.action_loginFragment_to_welcomeFragment)
         }
 
         loginViewModel.failureMD.observe(viewLifecycleOwner) {

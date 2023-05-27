@@ -105,9 +105,9 @@ object MySharedPreference {
         return getSharedPreferences().getString(USER_NAME, "")!!
     }
 
-    fun setUserAddress(email: String) {
+    fun setUserAddress(address: String) {
         val editor = getSharedPreferences().edit()
-        editor?.putString(USER_ADDRESS, email)?.apply()
+        editor?.putString(USER_ADDRESS, address)?.apply()
     }
 
     fun getUserAddress(): String? {

@@ -10,12 +10,10 @@ interface WebServices {
         @Body modelRegister: ModelRegister,
     ): ModelRegisterLogin
 
-
     @POST("Authorization/LogIn")
     suspend fun login(
         @Body modelLogin: ModelLogin,
     ): ModelRegisterLogin
-
 
     @GET("Item/GetAllItems")
     suspend fun getItems(
@@ -42,6 +40,29 @@ interface WebServices {
     suspend fun getNearUsers(
         @Path("id") id: Int
     ): ModelNearUser
+
+    @POST("Returns/AddReturns")
+    suspend fun addReturns(
+        @Body modelReturns: ModelReturns
+    )
+
+    @GET("Returns/GetUserOrders/{code}")
+    suspend fun preReturns(
+        @Path("code") code: String
+    ): ModelPreReturn
+
+    @GET("/Order/GetUserOrders/{code}")
+    suspend fun getPreOrder(
+        @Path("code") code: String
+    ):ModelPreOrder
+
+    @POST("Order/AddOrder")
+    suspend fun addOrder(
+        @Body modelAddOrder: ModelAddOrder
+    )
+
+    @GET("Discount/GetAllDiscount")
+    suspend fun getAllDiscount():ModelDisount
 
 //    @GET("Returns/GetUserOrders/{code}")
 //    suspend fun addReturns(

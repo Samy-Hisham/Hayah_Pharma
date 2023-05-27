@@ -1,5 +1,7 @@
 package com.android.hayahpharma.ui.home
 
+import android.content.ContentValues.TAG
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -10,12 +12,10 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-import kotlin.math.roundToInt
 
 @HiltViewModel
 class HomeViewModel
-@Inject constructor(private val webServices: WebServices)
-    : ViewModel() {
+@Inject constructor(private val webServices: WebServices) : ViewModel() {
 
     private var _successMD = SingleLiveEvent<ModelDataItem>()
     val successMD get() = _successMD
@@ -67,6 +67,7 @@ class HomeViewModel
         }
     }
 
+    //////////////////////////////////////////////////////////
     private var _shoppingCartItems = mutableListOf<Item>()
     val shoppingCartItems get() = _shoppingCartItems.toList()
 
@@ -92,5 +93,81 @@ class HomeViewModel
         )
         _shoppingCartItems.add(newItemToAdd)
         return
+    }
+//////////////////////////////////////////////////////////
+
+    private var _shoppingCartItemsToOrder = mutableListOf<ItemX>()
+    val shoppingCartItemsToOrder get() = _shoppingCartItemsToOrder.toList()
+
+
+    fun addItemToCart(item: ModelDataItemItem) {
+        val hasProduct = _shoppingCartItemsToOrder.any { itemX ->
+            itemX.itemId == item.itemId
+        }
+
+        if (hasProduct) {
+            val currentClickedItem = _shoppingCartItemsToOrder.find { itemX ->
+                itemX.itemId == item.itemId
+            }
+            currentClickedItem?.qty?.plus(1)
+            return
+        }
+
+        val newItemToAdd = ItemX(
+            item.itemId,
+            item.itemName,
+            item.salesPrice.toInt(),
+            qty = 1.toString(),
+            item.imageName
+        )
+        _shoppingCartItemsToOrder.add(newItemToAdd)
+        return
+    }
+
+    private var _currentItemActionIndex = MutableLiveData<Unit>()
+    val currentItemActionIndex get() = _currentItemActionIndex
+    fun incrementItemQuantity(itemId: Int){
+        val itemToUpdate = _shoppingCartItemsToOrder.first { itemX -> itemX.itemId == itemId }
+        val newQuantity = itemToUpdate.qty.toInt().plus(1)
+        Log.e(TAG, "product before incrementItemQuantity: ${itemToUpdate.qty}", )
+
+        val itemWithNewQuantity = ItemX(
+            itemToUpdate.itemId,
+            itemToUpdate.itemName,
+            itemToUpdate.price,
+            newQuantity.toString(),
+            itemToUpdate.itemImage
+        )
+        val itemIdx = _shoppingCartItemsToOrder.indexOfFirst { itemX -> itemX.itemId == itemId }
+        _shoppingCartItemsToOrder[itemIdx] = itemWithNewQuantity
+        _currentItemActionIndex.postValue(Unit)
+        Log.e(TAG, "product after incrementItemQuantity: ${itemWithNewQuantity.qty}", )
+
+    }
+
+    fun decrementItemQuantity(itemId: Int){
+        val itemToUpdate = _shoppingCartItemsToOrder.first { itemX -> itemX.itemId == itemId }
+        val newQuantity = itemToUpdate.qty.toInt() - 1
+        Log.e(TAG, "product before decrementItemQuantity: ${itemToUpdate.qty}", )
+
+        if (newQuantity < 1){
+            val itemIdx = _shoppingCartItemsToOrder.indexOfFirst { itemX -> itemX.itemId == itemId }
+            _shoppingCartItemsToOrder.remove(itemToUpdate)
+            _currentItemActionIndex.postValue(Unit)
+
+            return
+        }
+        val itemWithNewQuantity = ItemX(
+            itemToUpdate.itemId,
+            itemToUpdate.itemName,
+            itemToUpdate.price,
+            newQuantity.toString(),
+            itemToUpdate.itemImage
+        )
+        val itemIdx = _shoppingCartItemsToOrder.indexOfFirst { itemX -> itemX.itemId == itemId }
+        _shoppingCartItemsToOrder[itemIdx] = itemWithNewQuantity
+        _currentItemActionIndex.postValue(Unit)
+        Log.e(TAG, "product after decrementItemQuantity: ${itemWithNewQuantity.qty}", )
+
     }
 }
