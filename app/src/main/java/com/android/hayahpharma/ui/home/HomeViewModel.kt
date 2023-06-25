@@ -99,7 +99,6 @@ class HomeViewModel
     private var _shoppingCartItemsToOrder = mutableListOf<ItemX>()
     val shoppingCartItemsToOrder get() = _shoppingCartItemsToOrder.toList()
 
-
     fun addItemToCart(item: ModelDataItemItem) {
         val hasProduct = _shoppingCartItemsToOrder.any { itemX ->
             itemX.itemId == item.itemId
@@ -142,7 +141,6 @@ class HomeViewModel
         _shoppingCartItemsToOrder[itemIdx] = itemWithNewQuantity
         _currentItemActionIndex.postValue(Unit)
         Log.e(TAG, "product after incrementItemQuantity: ${itemWithNewQuantity.qty}", )
-
     }
 
     fun decrementItemQuantity(itemId: Int){

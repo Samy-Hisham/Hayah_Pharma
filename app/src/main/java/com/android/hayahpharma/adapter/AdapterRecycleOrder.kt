@@ -15,7 +15,6 @@ import com.bumptech.glide.Glide
 class AdapterRecycleOrder : RecyclerView.Adapter<AdapterRecycleOrder.Holder>() {
 
     var list: List<ItemX>? = null
-    var count = 1
     var onUserClicks: OnUserClicks? = null
 
     @SuppressLint("NotifyDataSetChanged")
@@ -35,42 +34,16 @@ class AdapterRecycleOrder : RecyclerView.Adapter<AdapterRecycleOrder.Holder>() {
 
         val data = list?.get(position)
 
-//        holder.bind(data!!, countt)
-//
-//        holder.binding.btnAdd.setOnClickListener {
-//            counters[position] = countt + 1
-//            notifyItemChanged(position)
-//        }
-
         holder.binding.nameItem.text = data?.itemName
         holder.binding.textView2.text = data?.qty
-        var quantity: Int
 
         Glide.with(holder.itemView.context)
             .load(data?.itemImage)
             .into(holder.binding.imgItem)
-        val fullItemPriceWithCurrentQuantity = list?.get(position)?.qty?.toInt()?.times(list?.get(position)?.price?.toDouble()!!)
-        holder.binding.priceItem.text = fullItemPriceWithCurrentQuantity.toString()
 
-//        holder.binding.btnAdd.setOnClickListener {
-//            count++
-//            holder.binding.textView2.text = count.toString()
-//            quantity = count * data?.price!!.toInt()
-//            holder.binding.priceItem.text = "$quantity EGP"
-//        }
-//
-//        holder.binding.btnSub.setOnClickListener {
-//            count--
-//            holder.binding.textView2.text = count.toString()
-//            quantity = count * data?.price!!.toInt()
-//            holder.binding.priceItem.text = "$quantity EGP"
-//        }
-//
-//        holder.binding.textView2.text = count.toString()
-//        quantity = count * data?.price!!.toInt()
-//        holder.binding.priceItem.text = "$quantity EGP"
-//
-//        count = 1
+        val fullItemPriceWithCurrentQuantity =
+            list?.get(position)?.qty?.toInt()?.times(list?.get(position)?.price?.toDouble()!!)
+        holder.binding.priceItem.text = fullItemPriceWithCurrentQuantity.toString()
     }
 
     override fun getItemCount(): Int = list?.size ?: 0

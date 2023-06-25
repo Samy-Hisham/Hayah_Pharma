@@ -1,5 +1,6 @@
 package com.android.hayahpharma.ui.order
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -50,28 +51,10 @@ class AddOrderFragment : Fragment() {
             findNavController().navigate(R.id.action_addOrderFragment_to_homeFragment)
         }
         binding.buy.setOnClickListener {
-
             findNavController().navigate(R.id.action_addOrderFragment_to_detailOrderFragment)
-
-//            orderViewModel.sendOrder(sharedViewModel.shoppingCartItemsToOrder)
-//
-//            orderViewModel.successMD.observe(viewLifecycleOwner) {
-//                showToast(requireContext(), "Done")
-//                findNavController().navigate(R.id.action_addOrderFragment_to_homeFragment)
-//            }
-//            orderViewModel.failureMD.observe(viewLifecycleOwner) {
-//                showToast(requireContext(), it)
-//            }
-//            orderViewModel.progressMD.observe(viewLifecycleOwner) {
-//                if (it == true) {
-//                    binding.progress.visibility = View.VISIBLE
-//                } else {
-//                    binding.progress.visibility = View.GONE
-//                }
-//            }
         }
 
-        adapter.onUserClicks = object : AdapterRecycleOrder.OnUserClicks{
+        adapter.onUserClicks = object : AdapterRecycleOrder.OnUserClicks {
             override fun onClickPlus(id: Int) {
                 sharedViewModel.incrementItemQuantity(id)
             }
@@ -80,15 +63,16 @@ class AddOrderFragment : Fragment() {
                 sharedViewModel.decrementItemQuantity(id)
             }
         }
-
     }
 
-    fun observeForUi(){
-        sharedViewModel.currentItemActionIndex.observe(viewLifecycleOwner){ itemX ->
+    @SuppressLint("NotifyDataSetChanged")
+    fun observeForUi() {
+        sharedViewModel.currentItemActionIndex.observe(viewLifecycleOwner) { itemX ->
             adapter.setList(sharedViewModel.shoppingCartItemsToOrder)
             adapter.notifyDataSetChanged()
         }
     }
+
     private fun observe() {
         adapter.setList(sharedViewModel.shoppingCartItemsToOrder)
         binding.recycle.adapter = adapter
